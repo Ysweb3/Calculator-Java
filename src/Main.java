@@ -28,7 +28,9 @@ public class Main {
     static JButton buttonMultiply = new JButton();
     static JButton buttonEquals = new JButton();
     static JButton buttonPlaceHolder = new JButton();
-
+    static String num1 ="", num2 = "";
+    static boolean changeVariable = false;
+    static String symbol = "";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -39,6 +41,7 @@ public class Main {
 
         int appHeight = 700;
         int appWidth = 400;
+
 
         frame.setSize(appWidth,appHeight);
         frame.setTitle("Calculator");
@@ -79,9 +82,12 @@ public class Main {
         buttonAc.setBounds(0,0,100,100);
         buttonAc.setText("AC");
         buttonAc.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("AC");
+                num1 = "";
+                num2 = "";
+                symbol = "";
             }
         });
         outputPanel.add(buttonAc);
@@ -89,7 +95,7 @@ public class Main {
         buttonC.setBounds(100,0,100,100);
         buttonC.setText("C");
         buttonC.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("C");
             }
@@ -99,9 +105,12 @@ public class Main {
         buttonPercent.setBounds(200,0,100,100);
         buttonPercent.setText("%");
         buttonPercent.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("%");
+                symbol = "%";
+                changeVariable = true;
+
             }
         });
         outputPanel.add(buttonPercent);
@@ -109,9 +118,11 @@ public class Main {
         buttonDivide.setBounds(300,0,100,100);
         buttonDivide.setText("/");
         buttonDivide.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("/");
+                symbol = "/";
+                changeVariable = true;
             }
         });
         outputPanel.add(buttonDivide);
@@ -119,9 +130,11 @@ public class Main {
         buttonMultiply.setBounds(300,100,100,100);
         buttonMultiply.setText("x");
         buttonMultiply.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("x");
+                symbol = "x";
+                changeVariable = true;
             }
         });
         outputPanel.add(buttonMultiply);
@@ -129,9 +142,11 @@ public class Main {
         buttonMinus.setBounds(300,200,100,100);
         buttonMinus.setText("-");
         buttonMinus.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("-");
+                symbol = "-";
+                changeVariable = true;
             }
         });
         outputPanel.add(buttonMinus);
@@ -139,9 +154,11 @@ public class Main {
         buttonPlus.setBounds(300,300,100,100);
         buttonPlus.setText("+");
         buttonPlus.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("+");
+                symbol = "+";
+                changeVariable = true;
             }
         });
         outputPanel.add(buttonPlus);
@@ -149,18 +166,28 @@ public class Main {
         buttonEquals.setBounds(300,400,100,100);
         buttonEquals.setText("=");
         buttonEquals.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
+                changeVariable = false;
                 System.out.println("=");
-            }
-        });
-        outputPanel.add(buttonEquals);
-        buttonEquals.setBounds(300,400,100,100);
-        buttonEquals.setText("=");
-        buttonEquals.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("=");
+                switch (symbol){
+                    case "+":
+                        System.out.println(plus(num1,num2));
+                        break;
+                    case "-":
+                        System.out.println(minus(num1,num2));
+                        break;
+                    case "x":
+                        System.out.println(multiply(num1,num2));
+                        break;
+                    case "/":
+                        System.out.println(division(num1,num2));
+                        break;
+                    case "%":
+                        System.out.println(percentage(num1,num2));
+                        break;
+
+                }
             }
         });
         outputPanel.add(buttonEquals);
@@ -168,9 +195,9 @@ public class Main {
         button7.setBounds(0,100,100,100);
         button7.setText("7");
         button7.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("7");
+                setValues("7");
             }
         });
         outputPanel.add(button7);
@@ -178,9 +205,9 @@ public class Main {
         button8.setBounds(100,100,100,100);
         button8.setText("8");
         button8.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("8");
+                setValues("8");
             }
         });
         outputPanel.add(button8);
@@ -188,9 +215,9 @@ public class Main {
         button9.setBounds(200,100,100,100);
         button9.setText("9");
         button9.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("9");
+                setValues("9");
             }
         });
         outputPanel.add(button9);
@@ -198,9 +225,9 @@ public class Main {
         button4.setBounds(0,200,100,100);
         button4.setText("4");
         button4.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("4");
+                setValues("4");
             }
         });
         outputPanel.add(button4);
@@ -208,9 +235,9 @@ public class Main {
         button5.setBounds(100,200,100,100);
         button5.setText("5");
         button5.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("5");
+                setValues("5");
             }
         });
         outputPanel.add(button5);
@@ -218,9 +245,9 @@ public class Main {
         button6.setBounds(200,200,100,100);
         button6.setText("6");
         button6.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("6");
+                setValues("6");
             }
         });
         outputPanel.add(button6);
@@ -228,9 +255,10 @@ public class Main {
         button1.setBounds(0,300,100,100);
         button1.setText("1");
         button1.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("1");
+                setValues("1");
+
             }
         });
         outputPanel.add(button1);
@@ -238,9 +266,9 @@ public class Main {
         button2.setBounds(100,300,100,100);
         button2.setText("2");
         button2.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("2");
+                setValues("2");
             }
         });
         outputPanel.add(button2);
@@ -248,9 +276,9 @@ public class Main {
         button3.setBounds(200,300,100,100);
         button3.setText("3");
         button3.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("3");
+                setValues("3");
             }
         });
         outputPanel.add(button3);
@@ -258,7 +286,7 @@ public class Main {
         buttonPlaceHolder.setBounds(0,400,100,100);
         buttonPlaceHolder.setText("abc");
         buttonPlaceHolder.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println("abc");
             }
@@ -268,9 +296,9 @@ public class Main {
         button0.setBounds(100,400,100,100);
         button0.setText("0");
         button0.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
-                System.out.println("0");
+                setValues("0");
             }
         });
         outputPanel.add(button0);
@@ -278,7 +306,7 @@ public class Main {
         buttonDot.setBounds(200,400,100,100);
         buttonDot.setText(".");
         buttonDot.addActionListener(new ActionListener() {
-            @Override
+            
             public void actionPerformed(ActionEvent e) {
                 System.out.println(".");
             }
@@ -291,14 +319,11 @@ public class Main {
 
 
 
-//    double num1, num2;
-//    System.out.println("Enter number 1:");
-//    num1 = scanner.nextDouble();
-//    System.out.println("Enter number 2 :");
-//    num2 = scanner.nextDouble();
-//
-//
-//
+
+
+
+
+
 //    if(num1 == 0 ||num2 == 0){
 //        System.out.println("Cannot divide by Zero");
 //    }
@@ -311,17 +336,45 @@ public class Main {
 
         scanner.close();
     }
-    static double add(double num1,double num2){
-        return num1+num2;
+
+    static void setValues(String num){
+
+        if (!changeVariable){
+            num1  += num;
+        }
+        else {
+            num2 += num;
+            System.out.println(num1+"E");
+
+        }
+        System.out.println("num1= "+num1);
+        System.out.println("num2= "+num2);
     }
-    static double sub(double num1,double num2){
-        return num1-num2;
+
+    static double plus(String num1,String num2){
+        double parseDouble1 = Double.parseDouble(num1);
+        double parseDouble2 = Double.parseDouble(num2);
+        return parseDouble1+parseDouble2;
     }
-    static double mul(double num1,double num2){
-        return num1*num2;
+    static double minus(String num1,String num2){
+        double parseDouble1 = Double.parseDouble(num1);
+        double parseDouble2 = Double.parseDouble(num2);
+        return parseDouble1-parseDouble2;
     }
-    static double div(double num1,double num2){
-        return num1/num2;
+    static double multiply(String num1,String num2){
+        double parseDouble1 = Double.parseDouble(num1);
+        double parseDouble2 = Double.parseDouble(num2);
+        return parseDouble1*parseDouble2;
+    }
+    static double division(String num1,String num2){
+        double parseDouble1 = Double.parseDouble(num1);
+        double parseDouble2 = Double.parseDouble(num2);
+        return parseDouble1/parseDouble2;
+    }
+    static double percentage(String num1,String num2){
+        double parseDouble1 = Double.parseDouble(num1);
+        double parseDouble2 = Double.parseDouble(num2);
+        return (parseDouble1/parseDouble2) * 100;
     }
 
 }
