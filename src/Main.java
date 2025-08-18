@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -72,12 +73,12 @@ public class Main {
         labelEq.setText("00");//default text
         labelEq.setBounds(0,45,385, 100);
         labelEq.setForeground(new Color(105, 105, 105));
-        labelEq.setFont(new Font("",Font.PLAIN,25));//empty for default font
+        labelEq.setFont(new Font("",Font.PLAIN,30));//empty for default font
         labelEq.setHorizontalAlignment(SwingConstants.RIGHT);
         outputPanel.add(labelEq);
 
         labelOutput.setText("00");//default text
-        labelOutput.setBounds(0,60,385, 100);
+        labelOutput.setBounds(0,55,385, 100);
         labelOutput.setVerticalAlignment(JLabel.BOTTOM);
         labelOutput.setPreferredSize(new Dimension(370,100));
         labelOutput.setForeground(new Color(255,255,255));
@@ -89,6 +90,9 @@ public class Main {
         int buttonWidth = 90;
 
         buttonAc.setBounds(0,0,buttonWidth,buttonHeight);
+        buttonAc.setBackground(new Color(105, 105, 105));
+        buttonAc.setForeground(Color.WHITE);
+        buttonAc.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonAc.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonAc.setText("AC");
         buttonAc.addActionListener(new ActionListener() {
@@ -101,6 +105,9 @@ public class Main {
         inputPanel.add(buttonAc);
 
         buttonC.setBounds(100,0,buttonWidth,buttonHeight);
+        buttonC.setBackground(new Color(105, 105, 105));
+        buttonC.setForeground(Color.WHITE);
+        buttonC.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonC.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonC.setText("C");
         buttonC.addActionListener(new ActionListener() {
@@ -113,6 +120,9 @@ public class Main {
         inputPanel.add(buttonC);
 
         buttonPercent.setBounds(200,0,buttonWidth,buttonHeight);
+        buttonPercent.setBackground(new Color(105, 105, 105));
+        buttonPercent.setForeground(Color.WHITE);
+        buttonPercent.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonPercent.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonPercent.setText("%");
         buttonPercent.addActionListener(new ActionListener() {
@@ -129,6 +139,9 @@ public class Main {
         inputPanel.add(buttonPercent);
 
         buttonDivide.setBounds(300,0,buttonWidth,buttonHeight);
+        buttonDivide.setBackground(new Color(246, 162, 28));
+        buttonDivide.setForeground(Color.WHITE);
+        buttonDivide.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonDivide.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonDivide.setText("/");
         buttonDivide.addActionListener(new ActionListener() {
@@ -144,6 +157,9 @@ public class Main {
         inputPanel.add(buttonDivide);
 
         button7.setBounds(0,100,buttonWidth,buttonHeight);
+        button7.setBackground(new Color(42, 42, 42));
+        button7.setForeground(Color.WHITE);
+        button7.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button7.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button7.setText("7");
         button7.addActionListener(new ActionListener() {
@@ -155,6 +171,9 @@ public class Main {
         inputPanel.add(button7);
 
         button8.setBounds(100,100,buttonWidth,buttonHeight);
+        button8.setBackground(new Color(42, 42, 42));
+        button8.setForeground(Color.WHITE);
+        button8.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button8.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button8.setText("8");
         button8.addActionListener(new ActionListener() {
@@ -166,6 +185,10 @@ public class Main {
         inputPanel.add(button8);
 
         button9.setBounds(200,100,buttonWidth,buttonHeight);
+        button9.setBackground(new Color(42, 42, 42));
+        button9.setForeground(Color.WHITE);
+        button9.setFont(new Font("",Font.PLAIN,25));//empty for default font
+
         button9.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button9.setText("9");
         button9.addActionListener(new ActionListener() {
@@ -177,6 +200,9 @@ public class Main {
         inputPanel.add(button9);
 
         buttonMultiply.setBounds(300,100,buttonWidth,buttonHeight);
+        buttonMultiply.setBackground(new Color(246, 162, 28));
+        buttonMultiply.setForeground(Color.WHITE);
+        buttonMultiply.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonMultiply.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonMultiply.setText("x");
         buttonMultiply.addActionListener(new ActionListener() {
@@ -192,6 +218,9 @@ public class Main {
         inputPanel.add(buttonMultiply);
 
         button4.setBounds(0,200,buttonWidth,buttonHeight);
+        button4.setBackground(new Color(42, 42, 42));
+        button4.setForeground(Color.WHITE);
+        button4.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button4.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button4.setText("4");
         button4.addActionListener(new ActionListener() {
@@ -203,6 +232,9 @@ public class Main {
         inputPanel.add(button4);
 
         button5.setBounds(100,200,buttonWidth,buttonHeight);
+        button5.setBackground(new Color(42, 42, 42));
+        button5.setForeground(Color.WHITE);
+        button5.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button5.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button5.setText("5");
         button5.addActionListener(new ActionListener() {
@@ -214,6 +246,9 @@ public class Main {
         inputPanel.add(button5);
 
         button6.setBounds(200,200,buttonWidth,buttonHeight);
+        button6.setBackground(new Color(42, 42, 42));
+        button6.setForeground(Color.WHITE);
+        button6.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button6.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button6.setText("6");
         button6.addActionListener(new ActionListener() {
@@ -225,6 +260,9 @@ public class Main {
         inputPanel.add(button6);
 
         buttonMinus.setBounds(300,200,buttonWidth,buttonHeight);
+        buttonMinus.setBackground(new Color(246, 162, 28));
+        buttonMinus.setForeground(Color.WHITE);
+        buttonMinus.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonMinus.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonMinus.setText("-");
         buttonMinus.addActionListener(new ActionListener() {
@@ -240,6 +278,9 @@ public class Main {
         inputPanel.add(buttonMinus);
 
         button1.setBounds(0,300,buttonWidth,buttonHeight);
+        button1.setBackground(new Color(42, 42, 42));
+        button1.setForeground(Color.WHITE);
+        button1.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button1.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button1.setText("1");
         button1.addActionListener(new ActionListener() {
@@ -252,6 +293,9 @@ public class Main {
         inputPanel.add(button1);
 
         button2.setBounds(100,300,buttonWidth,buttonHeight);
+        button2.setBackground(new Color(42, 42, 42));
+        button2.setForeground(Color.WHITE);
+        button2.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button2.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button2.setText("2");
         button2.addActionListener(new ActionListener() {
@@ -263,6 +307,9 @@ public class Main {
         inputPanel.add(button2);
 
         button3.setBounds(200,300,buttonWidth,buttonHeight);
+        button3.setBackground(new Color(42, 42, 42));
+        button3.setForeground(Color.WHITE);
+        button3.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button3.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button3.setText("3");
         button3.addActionListener(new ActionListener() {
@@ -276,6 +323,9 @@ public class Main {
 
 
         buttonPlus.setBounds(300,300,buttonWidth,buttonHeight);
+        buttonPlus.setBackground(new Color(246, 162, 28));
+        buttonPlus.setForeground(Color.WHITE);
+        buttonPlus.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonPlus.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonPlus.setText("+");
         buttonPlus.addActionListener(new ActionListener() {
@@ -291,6 +341,9 @@ public class Main {
         inputPanel.add(buttonPlus);
 
         buttonPlaceHolder.setBounds(0,400,buttonWidth,buttonHeight);
+        buttonPlaceHolder.setBackground(new Color(42, 42, 42));
+        buttonPlaceHolder.setForeground(Color.WHITE);
+        buttonPlaceHolder.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonPlaceHolder.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonPlaceHolder.setText("abc");
         buttonPlaceHolder.addActionListener(new ActionListener() {
@@ -302,6 +355,9 @@ public class Main {
         inputPanel.add(buttonPlaceHolder);
 
         button0.setBounds(100,400,buttonWidth,buttonHeight);
+        button0.setBackground(new Color(42, 42, 42));
+        button0.setForeground(Color.WHITE);
+        button0.setFont(new Font("",Font.PLAIN,25));//empty for default font
         button0.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         button0.setText("0");
         button0.addActionListener(new ActionListener() {
@@ -313,6 +369,9 @@ public class Main {
         inputPanel.add(button0);
 
         buttonDot.setBounds(200,400,buttonWidth,buttonHeight);
+        buttonDot.setBackground(new Color(42, 42, 42));
+        buttonDot.setForeground(Color.WHITE);
+        buttonDot.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonDot.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonDot.setText(".");
         buttonDot.addActionListener(new ActionListener() {
@@ -324,6 +383,9 @@ public class Main {
         inputPanel.add(buttonDot);
 
         buttonEquals.setBounds(300,400,buttonWidth,buttonHeight);
+        buttonEquals.setBackground(new Color(246, 162, 28));
+        buttonEquals.setForeground(Color.WHITE);
+        buttonEquals.setFont(new Font("",Font.PLAIN,25));//empty for default font
         buttonEquals.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         buttonEquals.setText("=");
         buttonEquals.addActionListener(new ActionListener() {
@@ -364,16 +426,6 @@ public class Main {
         });
         inputPanel.add(buttonEquals);
 
-
-//    if(num1 == 0 ||num2 == 0){
-//        System.out.println("Cannot divide by Zero");
-//    }
-//    else {
-//        System.out.println(add(num1, num2));
-//        System.out.println(sub(num1, num2));
-//        System.out.println(mul(num1, num2));
-//        System.out.println(div(num1, num2));
-//    }
 
         scanner.close();
     }
@@ -432,6 +484,10 @@ public class Main {
         return parseDouble1*parseDouble2;
     }
     static double division(String num1,String num2){
+        if (Objects.equals(num1, "0") && Objects.equals(num2, "0")){
+            labelOutput.setText("Error");
+            return 0;
+        }
         double parseDouble1 = Double.parseDouble(num1);
         double parseDouble2 = Double.parseDouble(num2);
         String outputToString = String.valueOf(parseDouble1/parseDouble2);
