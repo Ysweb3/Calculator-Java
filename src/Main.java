@@ -115,6 +115,8 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("%");
                 symbol = "%";
+                tempV += "%";
+                labelOutput.setText(tempV);
                 changeVariable = true;
 
             }
@@ -129,6 +131,8 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("/");
                 symbol = "/";
+                tempV += "/";
+                labelOutput.setText(tempV);
                 changeVariable = true;
             }
         });
@@ -176,6 +180,8 @@ public class Main {
                 System.out.println("x");
                 symbol = "x";
                 changeVariable = true;
+                tempV += "x";
+                labelOutput.setText(tempV);
             }
         });
         inputPanel.add(buttonMultiply);
@@ -221,6 +227,8 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("-");
                 symbol = "-";
+                tempV += "-";
+                labelOutput.setText(tempV);
                 changeVariable = true;
             }
         });
@@ -270,6 +278,8 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("+");
                 symbol = "+";
+                tempV += "+";
+                labelOutput.setText(tempV);
                 changeVariable = true;
             }
         });
