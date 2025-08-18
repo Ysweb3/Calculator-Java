@@ -379,10 +379,10 @@ public class Main {
     static void displayOutput(int output){
         finalOutput = String.valueOf(output);
 
-        finalOutput += tempV;
+        finalOutput = tempV + finalOutput;
         System.out.println("HELO"+ finalOutput);
         labelOutput.setText(finalOutput);
-        tempV = String.valueOf(output);
+        tempV += String.valueOf(output);
         finalOutput ="";
 
         System.out.println(tempV+" temp");
