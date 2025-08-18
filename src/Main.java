@@ -32,6 +32,8 @@ public class Main {
     static boolean changeVariable = false;
     static String symbol = "";
     static JLabel labelOutput = new JLabel();
+    static String tempV = "";
+    static String finalOutput = "";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -87,10 +89,8 @@ public class Main {
         buttonAc.addActionListener(new ActionListener() {
             
             public void actionPerformed(ActionEvent e) {
-                System.out.println("AC");
-                num1 = "";
-                num2 = "";
-                symbol = "";
+                clearOutput();
+
             }
         });
         inputPanel.add(buttonAc);
@@ -256,6 +256,7 @@ public class Main {
 
             public void actionPerformed(ActionEvent e) {
                 setValues("3");
+
             }
         });
         inputPanel.add(button3);
@@ -314,26 +315,27 @@ public class Main {
             
             public void actionPerformed(ActionEvent e) {
                 changeVariable = false;
+                labelOutput.setText("");
                 System.out.println("=");
                 switch (symbol){
                     case "+":
-                        displayOutput(plus(num1,num2));
+                        displayOutput((int) plus(num1,num2));
                         System.out.println(plus(num1,num2));
                         break;
                     case "-":
-                        displayOutput(minus(num1,num2));
+                        displayOutput((int) minus(num1,num2));
                         System.out.println(minus(num1,num2));
                         break;
                     case "x":
-                        displayOutput(multiply(num1,num2));
+                        displayOutput((int) multiply(num1,num2));
                         System.out.println(multiply(num1,num2));
                         break;
                     case "/":
-                        displayOutput(division(num1,num2));
+                        displayOutput((int) division(num1,num2));
                         System.out.println(division(num1,num2));
                         break;
                     case "%":
-                        displayOutput(percentage(num1,num2));
+                        displayOutput((int) percentage(num1,num2));
                         System.out.println(percentage(num1,num2));
                         break;
 
@@ -341,32 +343,6 @@ public class Main {
             }
         });
         inputPanel.add(buttonEquals);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //    if(num1 == 0 ||num2 == 0){
@@ -386,45 +362,79 @@ public class Main {
 
         if (!changeVariable){
             num1  += num;
+            displayOutput(Integer.parseInt(num));
         }
         else {
             num2 += num;
+            displayOutput(Integer.parseInt(num));
             System.out.println(num1+"E");
 
         }
+
 
         System.out.println("num1= "+num1);
         System.out.println("num2= "+num2);
 
     }
-    static void displayOutput(double output){
-        labelOutput.setText(String.valueOf(output));
+    static void displayOutput(int output){
+        finalOutput = String.valueOf(output);
+
+        finalOutput += tempV;
+        System.out.println("HELO"+ finalOutput);
+        labelOutput.setText(finalOutput);
+        tempV = String.valueOf(output);
+        finalOutput ="";
+
+        System.out.println(tempV+" temp");
+        System.out.println(finalOutput+" finalOutput");
     }
 
     static double plus(String num1,String num2){
         double parseDouble1 = Double.parseDouble(num1);
         double parseDouble2 = Double.parseDouble(num2);
+
+        String outputToString = String.valueOf(parseDouble1+parseDouble2);
+        labelOutput.setText(finalOutput+outputToString);
         return parseDouble1+parseDouble2;
     }
     static double minus(String num1,String num2){
         double parseDouble1 = Double.parseDouble(num1);
         double parseDouble2 = Double.parseDouble(num2);
+
+        String outputToString = String.valueOf(parseDouble1-parseDouble2);
+        labelOutput.setText(finalOutput+outputToString);
         return parseDouble1-parseDouble2;
     }
     static double multiply(String num1,String num2){
         double parseDouble1 = Double.parseDouble(num1);
         double parseDouble2 = Double.parseDouble(num2);
+        String outputToString = String.valueOf(parseDouble1*parseDouble2);
+        labelOutput.setText(finalOutput+outputToString);
         return parseDouble1*parseDouble2;
     }
     static double division(String num1,String num2){
         double parseDouble1 = Double.parseDouble(num1);
         double parseDouble2 = Double.parseDouble(num2);
+        String outputToString = String.valueOf(parseDouble1/parseDouble2);
+        labelOutput.setText(finalOutput+outputToString);
         return parseDouble1/parseDouble2;
     }
     static double percentage(String num1,String num2){
         double parseDouble1 = Double.parseDouble(num1);
         double parseDouble2 = Double.parseDouble(num2);
+        double eqOutput = (parseDouble1/parseDouble2) * 100;
+        String outputToString = String.valueOf(eqOutput);
+        labelOutput.setText(finalOutput+outputToString);
         return (parseDouble1/parseDouble2) * 100;
+    }
+    static void clearOutput(){
+        System.out.println("AC");
+        num1 = "";
+        num2 = "";
+        symbol = "";
+        labelOutput.setText("00");
+        tempV = "";
+        finalOutput = "";
     }
 
 }
