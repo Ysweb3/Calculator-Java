@@ -34,6 +34,8 @@ public class Main {
     static JLabel labelOutput = new JLabel();
     static String tempV = "";
     static String finalOutput = "";
+    static JLabel labelEq = new JLabel();
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -56,16 +58,17 @@ public class Main {
         frame.getContentPane().setBackground(new Color(59, 59, 59));
 
         JPanel outputPanel = new JPanel();
-        outputPanel.setBackground(Color.red);
+        outputPanel.setBackground(new Color(36, 36, 36));
         outputPanel.setBounds(0,0,400,150);
         frame.add(outputPanel);
 
         JPanel inputPanel = new JPanel();
-        inputPanel.setBackground(Color.green);
+        inputPanel.setBackground(new Color(36, 36, 36));
         inputPanel.setBounds(0,150,400,550);
         frame.add(inputPanel);
 
-        JLabel labelEq = new JLabel();
+        inputPanel.setLayout(null);
+        outputPanel.setLayout(null);
         labelEq.setText("00");//default text
         labelEq.setBounds(0,45,385, 100);
         labelEq.setForeground(new Color(105, 105, 105));
@@ -74,14 +77,16 @@ public class Main {
         outputPanel.add(labelEq);
 
         labelOutput.setText("00");//default text
-        labelOutput.setBounds(0,80,385, 100);
+        labelOutput.setBounds(0,60,385, 100);
+        labelOutput.setVerticalAlignment(JLabel.BOTTOM);
+        labelOutput.setPreferredSize(new Dimension(370,100));
         labelOutput.setForeground(new Color(255,255,255));
         labelOutput.setFont(new Font("",Font.BOLD,45));//empty for default font
         labelOutput.setHorizontalAlignment(SwingConstants.RIGHT);
         outputPanel.add(labelOutput);
 
-        int buttonHeight = 95;
-        int buttonWidth = 95;
+        int buttonHeight = 90;
+        int buttonWidth = 90;
 
         buttonAc.setBounds(0,0,buttonWidth,buttonHeight);
         buttonAc.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
@@ -330,22 +335,27 @@ public class Main {
                 switch (symbol){
                     case "+":
                         displayOutput((int) plus(num1,num2));
+                        labelEq.setText(num1 + "+" + num2);
                         System.out.println(plus(num1,num2));
                         break;
                     case "-":
                         displayOutput((int) minus(num1,num2));
+                        labelEq.setText(num1 + "-" + num2);
                         System.out.println(minus(num1,num2));
                         break;
                     case "x":
                         displayOutput((int) multiply(num1,num2));
+                        labelEq.setText(num1 + "x" + num2);
                         System.out.println(multiply(num1,num2));
                         break;
                     case "/":
                         displayOutput((int) division(num1,num2));
+                        labelEq.setText(num1 + "/" + num2);
                         System.out.println(division(num1,num2));
                         break;
                     case "%":
                         displayOutput((int) percentage(num1,num2));
+                        labelEq.setText(num1 + "%" + num2);
                         System.out.println(percentage(num1,num2));
                         break;
 
@@ -410,7 +420,6 @@ public class Main {
     static double minus(String num1,String num2){
         double parseDouble1 = Double.parseDouble(num1);
         double parseDouble2 = Double.parseDouble(num2);
-
         String outputToString = String.valueOf(parseDouble1-parseDouble2);
         labelOutput.setText(finalOutput+outputToString);
         return parseDouble1-parseDouble2;
@@ -443,6 +452,7 @@ public class Main {
         num2 = "";
         symbol = "";
         labelOutput.setText("00");
+        labelEq.setText("00");
         tempV = "";
         finalOutput = "";
     }
